@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Extraction</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+      .main {
+        min-height: 100vh;
+        min-width: 100vw;
+        background-color: #f6f8fa;
+        display: flex;
+        align-items: center;
+      }
+      .container {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+      .row1 {
+        padding: 1rem;
+        min-width: 50vw;
+      }
+      .row2 {
+        padding: 1rem;
+        min-width: 40vw;
+      }
+      h2 {
+        margin-bottom: 1rem;
+        color: rgb(0, 221, 162);
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+      input {
+        height: 30px;
+        padding-inline: 10px;
+        border-radius: 5px;
+        border: 1.5px solid #d3e0e0;
+        outline: none;
+        background-color: #d3e0e0;
+        transition: 0.5s ease all;
+      }
+      input:focus {
+        outline: none;
+        border: 1.8px solid blue !important;
+      }
+      label {
+        margin-top: 1rem;
+        font-weight: 600;
+        font-size: 1rem;
+      }
+      .imageContainer {
+        height: 400px;
+        width: 575px;
+        border-radius: 8px;
+        background-color: #bbb;
+      }
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+        border-radius: 8px !important;
+      }
+      .btnContainer {
+        display: flex;
+        width: 100%;
+        align-items: left;
+        justify-content: left;
+      }
+      button {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        width: 200px;
+        background-color: rgb(0, 221, 162);
+        height: 54px;
+        border: 0;
+        border-radius: 8px;
+        color: white;
+        cursor: pointer;
+        transition: 0.5s all ease;
+      }
+      button:hover {
+        background-color: rgb(0, 200, 162);
+        transform: scale(1.1);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="container">
+        <div class="row1">
+        
+        <h2>Message Encrypted & Performed Steganography</h2>
+          <div class="imageContainer">
+            <img
+              alt="Couldn't load"
+              src="{{url_for('static', filename=user_image)}}" alt="Couldn't load" height='400' >
+          </div>
+          
+          
+        </div>
+        <div class="row2">
+          <div>
+            <form action="/decryption">
+              <h2>Extracted Information</h2>
+              <label for="fullname">Use this key to decode: : {{hash}}</label>
+              <label for="fullname">hash of message : {{hash1}}</label>
+              <label for="fullname">Final Image is stored in: encrypted/{{user_image}}</label>
+              <div class="btnContainer">
+                <button type="submit" value="Submit">Start Decryption</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+

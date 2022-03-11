@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      *,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow: hidden;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.w-100p {
+  width: 100%;
+}
+
+.hero {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 3rem;
+}
+
+.hero--question {
+  width: 100%;
+  font-size: 3rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .hero--question {
+    font-size: 2rem;
+  }
+}
+
+.hero--wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: lightblue; */
+}
+
+@media only screen and (max-width: 600px) {
+  .mainForm {
+    flex-direction: column;
+  }
+  .mainForm button {
+    min-width: 300px;
+  }
+}
+
+.mainForm {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  align-items: center;
+}
+
+.mainForm input {
+  padding: 16px 24px;
+  width: 100%;
+  border-radius: 15px;
+  outline: none;
+  border: 1px solid #333;
+  font-size: 1.25rem;
+}
+
+.mainForm input:focus {
+  outline: none;
+  border: 1.8px solid blue !important;
+}
+
+.mainForm button {
+  padding: 16px 24px;
+  font-size: 1.25rem;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all ease 0.5s;
+  background-color: #cdc8fc;
+  color: #3a2ce9;
+}
+
+.mainForm button:hover {
+  /* transform: scale(1.1); */
+  color: white;
+  background-color: #3a2ce9;
+}
+
+.answer {
+  margin-top: 5rem;
+
+  display: none;
+}
+
+/* spinner */
+.lds-dual-ring {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 34px;
+  height: 34px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #3a2ce9;
+  border-color: #3a2ce9 transparent #3a2ce9 transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#myLoader {
+  display: none;
+}
+h2 {text-align: center;}
+    </style>
+  </head>
+  <body>
+  
+    <form action="/dec" method="POST" enctype="multipart/form-data">
+   
+    <section class="hero">
+    <h2> Minor Project 2078</h2> </br> </br>
+      <h1 class="hero--question">Enter Decode Key.</h1>
+      <div class="hero--wrapper">
+      <div class="mainForm">
+    
+    
+    <input type="text" placeholder="Enter your text" name='dk' class="inputText" />
+      
+      </div>
+      </div>
+
+
+      </br>
+
+      <h1 class="hero--question">Enter Hash Key.</h1>
+      <div class="hero--wrapper">
+      <div class="mainForm">
+    
+    
+    <input type="text" placeholder="Enter your text" name='hk' class="inputText" />
+      
+      </div>
+      </div>
+    </br>
+      
+      <h1 class="hero--question">Upload Image to perform decryption</h1>
+      <div class="hero--wrapper">
+        <div class="mainForm">
+      <input type="file" name="file_name" class="upload" />
+      <input type="submit" value="Submit" class="submit" />
+      </div>
+      </div>
+      </section>
+    </form>
+  </body>
+</html>
